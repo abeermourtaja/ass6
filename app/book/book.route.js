@@ -1,0 +1,22 @@
+const bookController=require('./book.controller.js')
+const express=require('express')
+const router=express.Router()
+router.post('/collection/books',bookController.createBookCollectionController)
+router.post('/collection/books/index',bookController.createIndexBookController)
+router.post('/books',bookController.insertBookController)
+router.post('/books/batch',bookController.insertBooksController)
+router.get('/books/batch',bookController.getBooksController)
+router.get('/books/year',bookController.findBookByYearController)
+router.get('/books/skip-limit',bookController.find3BooksDecendingOrderByYearController)
+router.get('/books/year-integer',bookController.findBooksByYearIntegerController)
+router.get('/books/exclude-genres',bookController.findBooksExcludeGenersController)
+router.delete('/books/before-year',bookController.deleteBooksBeforeYearController)
+router.get('/books/aggregate1',bookController.aggregateBooks1Controller)
+router.get('/books/aggregate2',bookController.aggregateBooks2Controller)
+router.get('/books/aggregate3',bookController.aggregateBooks3Controller)
+router.get('/books/aggregate4',bookController.aggregateBooks4Controller)
+router.patch('/books/:title',bookController.updateBookController)
+router.get('/books/:title',bookController.findBookByTitleController)
+
+
+module.exports=router
